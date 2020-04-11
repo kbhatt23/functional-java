@@ -41,3 +41,25 @@ We can use them without creating a new interface that actualy provided the smae 
 Primitive specialized functional interfaces helps in perfromance as unboxing, modification and again boxing will not be needed in intermediate operations/chaining
 
 supplier do not support chaining
+
+method refrence or constructor reference is used to pass existing method as one of the method parameter to another function
+before 1.8 java support object passing and promitive passing to methods
+however we can not set method as a variable and pass to another method as an argument
+
+
+Optional:
+Optional is  warapper over our noirmla object ot control null pointer exception
+concept is taken from scala
+
+Optional.of(val) -> can not take null-> will throw null pointer exception
+Optional.ofNullable(val) -> can take null , will return empty optional in case of null
+Optional is immutable , once value is set can not modify it
+16 Byte object
+It create extra Optionla object so we should not use it always
+Only when there is need of funcationl programming we should use it for better memory utilization
+
+Optional .orelse is eager and .orElseGet is lazy
+Hence the object that will return will get create in orElse even when value is non empty in optional
+This can cause perfroamce
+hence always use orElseGet as supplier is lazy and will be evaluated only when optional val is empty
+in orelse case the empty case value is constructed always
