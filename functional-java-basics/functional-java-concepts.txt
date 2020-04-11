@@ -1,0 +1,43 @@
+why to use functionla programming
+a. declarative style instead of imperative: focussing on what to do and not how to do
+b. adding abstraction and loose coupling: hiding how the task is done
+c. easier to understand: as we have added abstract of how to be done, what is doine is clearly written in step by step manner
+d. same code for mutilthreaded env: in imperative style the code to run in ulti thread env is different to that to run in normal
+e. less error prone: as pure functions do not let side effects : pure functions are immutable like math functions
+g: we can chain things and add code in single line: less code to be written
+
+oops languages consider object as first class citizen
+in functioanl programming they consider functions as first class citizen
+
+anonymous class means a class without name
+similiarly anonymous functions are functions without a name
+A lambda is a function without a name
+
+Functional interfaces: any interface having one abstract method: if interfacfe extends another interfaces. it will still be functional if there is only one abstract method in total
+it can have default methods and static methods
+
+we can use lambda inplace of anonymous inner class but only for functional interfaces
+
+parts of method:
+name, return type , paramters, access modifier, body
+lambda is only for one abstract method containing interfaces
+so name can be removed as there is only one method to override or implement
+return type comiler can caluclate on basis of body
+access modifier is always pubkic for interfaces so can be removed
+
+so in lambda we can have paramters and body thats it
+Lambda do not work fpor single abstract method abstract clasess works only for single abstract method interfaces
+
+Lambdas are better than anoonymous inner classes as it do not create new compiled .class files
+In anonymous classes it creates two .class file after compilation: one for main class and one each for anonymous inner classes
+So lambda are smart : they use invokeDynamic and no need to create .class for each anonymous lambda like we do for anonymlous inner classes
+The body is calculated and executed at runtime like frameworks like JS. Java uses invoke dynamic for this9
+
+declarative -> functional programming is part/subset of declarative programming
+
+Java have provided predefined functional interfaces(like funtion,predicate etc) . As these are reusabled by us in different scenarios
+We can use them without creating a new interface that actualy provided the smae contract
+
+Primitive specialized functional interfaces helps in perfromance as unboxing, modification and again boxing will not be needed in intermediate operations/chaining
+
+supplier do not support chaining
