@@ -63,3 +63,47 @@ Hence the object that will return will get create in orElse even when value is n
 This can cause perfroamce
 hence always use orElseGet as supplier is lazy and will be evaluated only when optional val is empty
 in orelse case the empty case value is constructed always
+
+Functional programming
+A programming paradigm whihch allows functions as first class citizen
+In oops programming we can create object in a function we can pass object and return object from function
+In functional programming we can even pass a function as input argument to another function, we can return function from a function
+
+key concepts:
+a. function as first class citizen
+b. pure functions : a function that do not care anything but input arguments. like state of object is not used in pure function, also pure function do not modify anything. No side effect
+c. lazy evaluation
+d. higher order function: Passing Functions as input argument to another function, or return function from another function or both
+
+Side effect : even logging , printing , calling another function can cause side effects
+the purpose of pure function is that we can run code in multi threaded environ
+
+compiler uses type reference to identify return type of lambda
+it uses synamic invoker to run lambda body at run time
+ment easily
+
+The variable defined outside the lambda function/stream chain are always effectively final
+effective final based on java rules
+a. For objects we can not assing a new object, however we can modify the variables/states
+b. immutable objects like string/Integer -> we can not assign new values
+c. primitives: can not assign enw value
+d. collection: can not assing new collection, but can modify it
+
+effectively final means the variable shud be initialzed and added at only one place
+eg:
+int a =23;
+a=24
+lmbda() -> uses a will give comppilation
+
+but 
+
+int a =23;
+
+lmbda() -> uses a will not give comppilation
+
+closure means the free variables that are defined out of lambda body but are used in lambda body
+these values are stored in closure of lambda in JVM and is passed to another place where lambda is passed
+
+currying is having a function that retruns another functions
+This can help to keep first input same and based on apply usage second argument can be changed
+ 
