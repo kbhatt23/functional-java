@@ -1,0 +1,5 @@
+iterator design pattern means hiding individual item in a collection
+For this in imperative coding style we used to use hasNExt and next methods
+
+In our case we can use this using consumern presented by client to any new method in custom collection class
+eg of this is forEach methid the internal iterator in arraylist
