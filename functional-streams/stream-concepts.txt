@@ -1,0 +1,61 @@
+benefits of stream
+a. code becomes declarative
+b. code becomes flexible, easier to understand
+c. sme code for parallelization
+d.  easily readable
+
+Stream is sequence of data or element froma  source -> source can be file, string , collection , arrays , io objects	
+
+parts of stream pipeline:
+a. source: output will create stream of data
+b. intermediate operation: input will be stream and output will be stream: couldbe n in number
+c. terminal operations: it can be called only once . it starts the whole piplein process.
+It returns no value or return collection or some object, but can never return strea. it will return always non stream value
+
+reduce operation is terminal opertaion
+It reduces the whole stream of item to single item
+return type of binaryoperator will determine the return type of whole pipeline chain
+
+stream proces the items one by one only just like normal for each
+so in peek same iteration will be passed to all te ppeks once then next item will be passed
+
+so one by one each item start from source to intermediate operation ot terminal operation in sequence
+
+terminal operations of primitive int returns optionalof primitive like optionalint, optionaldouble
+not Optional<Int> or Optional<Double>
+
+We can create stream using builder method of stream
+Like Strea.builder().add(element T)
+
+flatmap can be used in 2 cases
+a .When an operation returns Stream<List<OBJ>> we can use flatMap and Return a stream so taht it flattens and create Stream<OBJ>
+b. When an operation returns Stream<Stream <OBJ>>
+As we know flatMap method needs function that have return type as stream
+c. when an opeation returns Stream<Obj[]> -> we can use Arrays.stream method
+
+When can we use paraele stream:
+a. when there are huge amount of data to process
+b. when each indicidual data entry are not very high but operation on each element takes huge time
+
+meaning we should go for paralelism only when there is a need meaning there is slowness in processing
+
+conditions for paralel stream to not result wrong output:
+a. Stream should be stateless : meaning any operation that needs sequencing of elements to be fixed should not be present
+b. Stream should not modiy and data in DB
+
+c. Result logic should not be bad when the sequnce of elements are not same : as in paralle stream sequence is not guaranteed
+d. immutability helps 
+eg skip, limit are stateful whihc means the sequence of items matters and hence it wont go well in parallel stream
+
+Fork join framework uses all the cores of processors
+however it do not use main method and keep it free
+so in case system have 8 processors then it will use 8-1 whihc is 7 for paralel processing and will keep main thread free
+
+Logic to calculate number of cores
+Case 1 : Compuation intensive: meaning lot fo logic and calulation is needed:
+then number of threads <= number of cores 
+becasue CPU processor will be busy with threads in complex computation and will never get chance to utilize more threads ,hence should not be greate than number of core
+
+Case2 : IO intensive: MEanig lot of webservice call or DB call or File call is there meaninng there will be a lot of waiting time for threads
+then number of threads > = number of cores
+because in this case processor will be waiting for webservice call to happen and will get chance to work on threads and hence we cna create more  number of threads than number of core of processor
