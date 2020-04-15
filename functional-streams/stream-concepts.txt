@@ -59,3 +59,15 @@ becasue CPU processor will be busy with threads in complex computation and will 
 Case2 : IO intensive: MEanig lot of webservice call or DB call or File call is there meaninng there will be a lot of waiting time for threads
 then number of threads > = number of cores
 because in this case processor will be waiting for webservice call to happen and will get chance to work on threads and hence we cna create more  number of threads than number of core of processor
+
+
+How collector works internally?
+Collector is an interface, Collectors class have static method to creat implenetation of Collector interface
+
+When we call stream.collect method it calls set of methods in below sequence
+Collector have 5 abstract methods: actual sequence of method call is below
+a. Supplier<A> : It returns the supplier of container like arrayList,map where data will be stored
+b. accumulator : It returns Biconsumer<A,T> -> it takes container returned by supplier, and add T item to it.
+c. combiner: User in case of paralele processing: Unaryoperattor<A> : it combined different contatiners(list or map etc) and add to single list or container.
+d. finisher: Function<T,R> : returns R item
+Characterstics : It defrines which methods to skip or whihc to continue

@@ -1,0 +1,32 @@
+spliterator interface is used to create stream from custom data source
+for eg: A class holding data from file, or webservice\
+
+Even collection classes implements spliterator interface to create stream from collection
+
+Spliterator will be used by collection and stream will use spilterator to get data from collection
+
+Itnerface have flowoing 4 abstract methods:
+ a. boolean tryadvance(consumer) : this is used to do come action if next element is present in stream
+ b. Spliterator<T> trySplit: it is used in splitting the data into smaller parts to be used by fork join to run in paraleel
+ c. int estimaedZie: size of iteration of foreach
+ d. int characterstics: this contains bit of characterstics seperated by | (Or) bitwise operator
+ This helps in identifying thebehavious of collections ins stream
+ 
+ eg : sorted, immutable, ordered
+ 
+ This helps inperforamce while calling stream pipeline chain
+ eg : set has implmenteation of spliterator containng sorted
+ so while calling sorted method in strema pipeline it will be ignored as set is already sorted
+  similoiarly arraylist is ordered by default so no need to order the list etc
+  This helps in skipping intermediate opertaion and can enhance performance
+  
+  code example question:
+  need to read a file
+  each four lines of file represent individual data of book properties like name , genre etc
+  We can use spliterator for this
+  As we know spliterator tryadvacnce gets called on each iteration of stream
+  we can accept a consumer of book taking values from base spliterator of string
+  
+  This example can be done using class BookUploadData.java using imperative way
+  
+  Using splerator class name is BookUploadSpliterator.java
