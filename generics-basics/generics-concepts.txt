@@ -1,0 +1,47 @@
+Generics are nothing but comppile type check for objects
+Eg Collection can hold any object in raw form 
+: same issue like above can be taken when data i give reference of object
+however a typed collection using generics will be forced by compiler
+
+Benefits:
+a. force type chekc for compiler in collections/object reference data to hold any data type
+b. code reusability by defining generic data tyoes
+
+java allowed devloper to use raw form (skiping generic type) or prefered generic type
+but compiler warns on these conditions as on runtime it can cause issue as devloper by mistake might cast to wrong type
+
+The colletion generics and any class level generics behave in same way
+a. It forces compiler if type reference is used to put data of taht specific type
+b. In case raw type is used compiler gives warning signal
+and in both collection and toher classes It will hold data in Object reference
+MEaning any value can be stored in backend
+But if user type case Object reference to wrong one runtime exception will occur
+
+Generic typed refercence T can not be used in statis variables and methods of class
+List we can see this in Stream interfaces and classes
+
+Generics can be put in methods also. in case we do not want to share the type to all methods.
+we can define generic type in method reference before the body and after public/private/protected access modifier
+We can use generics in constreuctors also rules aare same as methods
+However this reference type can be consumed only in method/constructor scope
+
+Generic polymorphism works in gneric classes but not in colections
+Eg:
+List<SuperClass> la = new ArrayList<ChildClass>();
+do not work
+however
+SuperClass<Integer> - new ChildClass<Integer> works;
+but SuperClass<Number> = new SuperClass<Integer> wont work
+so in short rules for generics of class and collection class behaves in same way
+
+eg:
+SuperClass<Number> kala = new ChildClass<Number>() : will work
+but SuperClass<Number> kala1 = new ChildClass<Integer> wont work
+
+Wildcards can not be used in header of class
+Only can be used in reference variable and method argument 
+? means ? extends object in list<?> or any combination of <? extends n> : Can not add any elmeent in list
+<? super Child? means we can pass anything that is child or super of child
+but can add child object only to list
+---- Generics are written in a way that old structure of collection work well with new way
+Both objects can refer to both way however developer should not corrupt the data
