@@ -1,0 +1,22 @@
+based on JODA time libraries
+All the classes are immutable to support functional programming
+
+LocalDate" to handle date only
+LocalTime : to habdle time only
+LocaldateTime : to handle date and time all togehter
+
+Period calss is used to compare localdate only , it can not compare localtime
+Period .getdays method will return month1-month2 only. it wont give difference between the dataes in month
+it do not do like isBefore and isAfter and isEqual method of considering all elments combined
+
+Duration class is for localtime only. needs hours, minutes,seconds and nano.do not care about days meonth etc
+For localdate parts difference we use Period class
+for locatime parts difference we use Duration class
+Duration always return logical differences of units
+
+LocalDate, LocalDateTime, LocalTime are ways of representing time in user readable formate
+
+Instant is way of these but in machine readable format like old Date API used to store time in millisecond since jan 1 1970(EPOCH)
+
+ZonedDateTime is class which is similar to LocalDateTiem but it also have zone details and zone offset(difference between UTC and currnet zone)
+LocalDateTime do not have zoneId attached and offset zone  i.e difference bwteen UTC time and current system default zone time
